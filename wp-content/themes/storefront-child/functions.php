@@ -13,7 +13,7 @@ function ttwc_show_view( $prodId ) {
     echo '<div><b>Total views: </b>' . $views . '</div>';
 
     $lastPurchase = intval(get_post_meta($prodId, 'ttwc_product_last_purchase', true));
-    $date = $lastPurchase ? date(get_option('date_format'), $lastPurchase) : 'Unknown';
+    $date = $lastPurchase ? date(get_option('date_format') . ' ' . get_option('time_format'), $lastPurchase) : 'Unknown';
     echo '<div><b>Last purchase: </b>' . $date . '</div>';
 }
 add_action('ttwc_show_view', 'ttwc_show_view');
